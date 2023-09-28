@@ -1,0 +1,24 @@
+﻿@model List<Epicode_S5_L3_BackEnd.Models.Articolo>
+
+@{
+    ViewBag.Title = "Vetrina";
+}
+
+<h2 class="text-center">Vetrina</h2>
+<hr />
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <img src="@item.ImmagineCopertinaUrl" class="card-img-top img-fluid" alt="Immagine Copertina">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nome</h5>
+                    <p class="card-text">Prezzo: @item.Prezzo €</p>
+                    <a href="@Url.Action("DettaglioUtente", new { id = item.Id })" class="btn btn-primary">Dettagli</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

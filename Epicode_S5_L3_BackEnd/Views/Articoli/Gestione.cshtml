@@ -1,0 +1,30 @@
+﻿@model List<Epicode_S5_L3_BackEnd.Models.Articolo>
+
+@{
+    ViewBag.Title = "Gestione";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Elenco Prodotti</h2>
+<hr />
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <img src="@item.ImmagineCopertinaUrl" class="card-img-top img-fluid" alt="Immagine Copertina">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nome</h5>
+                    <p class="card-text">Prezzo: @item.Prezzo €</p>
+                    @Html.ActionLink("Modifica", "DettaglioAdmin", new { id = item.Id }, new { @class = "btn btn-primary" })
+
+                    <form method="post" action="@Url.Action("Elimina", "Articoli")" class="d-inline">
+                        @Html.Hidden("id", item.Id)
+                        <button type="submit" class="btn btn-danger">Elimina</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

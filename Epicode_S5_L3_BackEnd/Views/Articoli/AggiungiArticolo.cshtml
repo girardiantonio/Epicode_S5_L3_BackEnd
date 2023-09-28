@@ -1,0 +1,81 @@
+﻿@model Epicode_S5_L3_BackEnd.Models.Articolo
+
+@{
+    ViewBag.Title = "AggiungiArticolo";
+}
+
+<h2>Aggiungi Articolo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group mt-3">
+        <h6>Nome</h6>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group mt-3">
+            <h6>Prezzo</h6>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Prezzo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Prezzo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h6>Descrizione</h6>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <h6>Immagine Copertina</h6>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ImmagineCopertinaUrl, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImmagineCopertinaUrl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <h6>Immagine aggiuntiva 1</h6>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ImmaginiAggiuntiveUrls1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImmaginiAggiuntiveUrls1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <h6>Immagine aggiuntiva 2</h6>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ImmaginiAggiuntiveUrls2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImmaginiAggiuntiveUrls2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mt-3 mb-3">
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(model => model.StatoDisponibile, new { @class = "" }) Disponibile
+                    </label>
+                </div>
+                @Html.ValidationMessageFor(model => model.StatoDisponibile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Aggiungi" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}

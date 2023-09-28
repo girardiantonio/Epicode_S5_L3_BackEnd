@@ -1,0 +1,74 @@
+﻿@model Epicode_S5_L3_BackEnd.Models.Articolo
+
+@{
+    ViewBag.Title = "DettaglioUtente";
+}
+
+<style>
+    .img-small {
+        cursor: pointer;
+    }
+</style>
+
+<h2>Dettaglio</h2>
+<hr />
+
+<div class="d-flex">
+    <div class="d-flex flex-column mb-3" style="width: 90px">
+        <img class="mb-3 img-small" src="@Model.ImmagineCopertinaUrl" alt="Immagine Copertina" onclick="showImage('copertina')">
+        <img class="mb-3 img-small" src="@Model.ImmaginiAggiuntiveUrls1" alt="Immagine Aggiuntiva 1" onclick="showImage('aggiuntiva1')">
+        <img class="mb-3 img-small" src="@Model.ImmaginiAggiuntiveUrls2" alt="Immagine Aggiuntiva 2" onclick="showImage('aggiuntiva2')">
+    </div>
+    <div class="image-container">
+        <img class="mb-3 mx-3 img-small" style="width: 300px" src="@Model.ImmagineCopertinaUrl" alt="Immagine Copertina" id="copertina-large">
+        <img class="mb-3 mx-3 img-small" style="width: 300px; display: none;" src="@Model.ImmaginiAggiuntiveUrls1" alt="Immagine Aggiuntiva 1" id="aggiuntiva1-large">
+        <img class="mb-3 mx-3 img-small" style="width: 300px; display: none;" src="@Model.ImmaginiAggiuntiveUrls2" alt="Immagine Aggiuntiva 2" id="aggiuntiva2-large">
+    </div>
+
+    <div class="card-body mx-5">
+        <h5 class="card-title mb-3"> @Model.Nome</h5>
+        <p class="card-text"><strong>da: @Model.Prezzo €</strong> IVA inclusa</p>
+        <p class="card-text">Colore:<strong> White/Black</strong></p>
+        <p class="card-text">@Model.Descrizione</p>
+
+        <div class="form-group mt-3">
+            <label for="taglia">Taglia:</label>
+            <select id="taglia" class="form-control">
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+            </select>
+        </div>
+
+        <div class="form-group mt-3 mb-5">
+            <label for="quantita">Quantità:</label>
+            <select id="quantita" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+
+        <a href="#" class="btn btn-primary">Compra ora</a>
+    </div>
+</div>
+
+
+<script>
+    function showImage(imageId) {
+        $(".image-container img").hide();
+
+        $("#" + imageId + "-large").show();
+    }
+</script>
